@@ -10,8 +10,8 @@ def logistic(y, X, beta):
   
 from eindiff.reverse import derivative_of
 
-jh = derivative_of(logistic, jacobian=True, hessian=True)
+jh = derivative_of(logistic, argno=2, jacobian=True, hessian=True)
 
-jacobian, hessian = jh(np.random.rand(10))
+jacobian, hessian = jh(y, X, np.random.rand(10))
 ```
 
