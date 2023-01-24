@@ -8,6 +8,8 @@ def logistic(y, X, beta):
   p = 1/(1+np.exp(-X@beta))
   return np.sum(y*np.log(p)+(1-y)*np.log(1-p))
   
+from eindiff.reverse import derivative_of
+
 jh = derivative_of(logistic, jacobian=True, hessian=True)
 
 jacobian, hessian = jh(np.random.rand(10))
